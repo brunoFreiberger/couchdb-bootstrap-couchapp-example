@@ -19,6 +19,7 @@
 				<div class="panel-heading"><h1>Cadastro de Produtos</h1></div>
 				<div class="panel-body">
 					<div id="messages" class="alert" style="display: none;" role="alert"></div>
+					<input type="hidden" id="id-registro-selecionado" />
 					<label for="inp_nome">Nome</label>
 					<input type="text" class="form-control input-lg" placeholder="Ex: Caneta" id="inp_nome"/>
 					<br />
@@ -47,14 +48,14 @@
 		</div>
 	</form>	
 	<!-- Inicio descrição -->
-	<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+	<div class="modal fade" id="dialog-descricao" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
 		<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<h4 class="modal-title dialog-nome-produto" id="gridSystemModalLabel"></h4>
 			</div>
-			<div class="modal-body" id="dialog-descricao-produto">
+			<div class="modal-body" id="dialog-produto">
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -63,5 +64,55 @@
 		</div>
   	</div>
 	<!-- Fim dialog descrição -->
+	<!-- Inicio Dialog editar -->
+	<div class="modal fade" id="dialog-editar" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+		<div class="modal-dialog" role="document">
+			<form id="form-editar">
+				<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title dialog-nome-produto" id="gridSystemModalLabel">Edição de produtos</h4>
+					</div>
+					<div class="modal-body" id="dialog-produto">
+						<label for="inp_nome">Nome</label>
+						<input type="text" class="form-control input-lg" placeholder="Ex: Caneta" id="inp_nome_dialog"/>
+						<br />
+						<label for="inp_valor">Valor</label>
+						<input type="text" class="form-control input-lg" placeholder="Ex: 5.85" id="inp_valor_dialog"/>
+						<br />
+						<label for="inp_fornecedor">Fornecedor</label>
+						<input type="text" class="form-control input-lg" placeholder="Ex: João" id="inp_fornecedor_dialog"/>
+						<br />
+						<label for="inp_descricao">Descrição</label>
+						<textarea class="form-control input-lg" rows="5" placeholder="Ex: Produto de alta qualidade.." id="inp_descricao_dialog"></textarea>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success" id="btn-salvar-edicao" data-dismiss="modal">Salvar</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+					</div>
+				</form>	
+			</div>
+		</div>
+  	</div>
+	<!-- Fim Dialog editar -->
+	
+	 <!-- Dialog confirmar exclusao -->
+  <div class="modal fade" id="dialog-confirm-exclusao" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Confirmação</h4>
+        </div>
+        <div class="modal-body">
+          <p>Deseja mesmo excluir este registro?</p>
+        </div>
+        <div class="modal-footer">
+		  <button type="button" class="btn btn-default" id="btn-confirma-exclusao" data-dismiss="modal">Excluir</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>	
 </html>
